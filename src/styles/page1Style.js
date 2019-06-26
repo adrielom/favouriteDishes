@@ -4,12 +4,12 @@ const width = Dimensions.width;
 
 export const page1Style = StyleSheet.create({
 	defaultMarginHorizontal: {
-		marginHorizontal: 15,
+		marginHorizontal: '5%',
 		flex: 1,
 	},
 	header: {
 		marginVertical: 10,
-		marginBottom: 10,
+		marginBottom: 8,
 		width: width,
 		alignItems: 'center',
 		flexDirection: 'row',
@@ -41,7 +41,7 @@ export const page1Style = StyleSheet.create({
 		color: 'white',
 		fontSize: 12,
 		fontWeight: '100',
-		marginBottom: 2,
+		marginBottom: 0,
 		fontFamily: 'Roboto',
 	},
 	favouriteDishes: {},
@@ -53,9 +53,29 @@ export const page1Style = StyleSheet.create({
 		fontFamily: 'Roboto',
 	},
 	favouriteDishesContainer: {
-		height: 250,
+		width: '105%',
+		margin: -10,
+		height: 225,
 		flexDirection: 'column',
 		justifyContent: 'space-around',
 	},
-	popularDishes: {},
+	popularDishes: {
+		marginTop: 30,
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingHorizontal: 6,
+		justifyContent: 'space-around',
+	},
+	popularDishesTitle: {
+		fontSize: 17.5,
+		marginBottom: 2,
+		color: '#070403',
+		width: '90%',
+		justifyContent: 'flex-start',
+		fontWeight: 'bold',
+	},
+	popularDishesSeeMore: {
+		fontSize: 15,
+		fontWeight: '500',
+	},
 });

@@ -1,21 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { horizontalDishesStyle } from '../styles/HorizontalDishesStyle';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-// import { Container } from './styles';
+const HorizontalDishes = ({ title, subTitle, value, discount, discountValue }) => {
+	const {
+		wrapper,
+		circle,
+		imgContainer,
+		img,
+		contentStyle,
+		infoStyle,
+		priceValue,
+		contentWrapper,
+		infoStyleSubTitle,
+		infoStyleTitle,
+		priceStyle,
+		discountStyle,
+	} = horizontalDishesStyle;
+	const rand = Math.floor(Math.random() * 10 + 1);
 
-const { wrapper, circle } = horizontalDishesStyle;
+	const discountHandler = (value) => {
+		if (discount === true) {
+			return <Text style={discountStyle}>{value}$</Text>;
+		}
+	};
 
-const HorizontalDishes = () => (
-	<View style={wrapper}>
-		<View>
-			<Image style={{ height: 300, width: 300 }} source={{ uri: 'https://source.unsplash.com/300x300/?food' }} />
+	return (
+		<View style={wrapper}>
+			<View style={contentStyle}>
+				<View style={imgContainer}>
+					<Image style={img} source={{ uri: `https://source.unsplash.com/900x900/?food/${rand}` }} />
+				</View>
+				<View style={contentWrapper}>
+					<View style={infoStyle}>
+						<Text style={infoStyleTitle}>{title}</Text>
+						<Text style={infoStyleSubTitle}>{subTitle}</Text>
+					</View>
+					<View style={priceValue}>
+						<Text style={priceStyle}>{value}</Text>
+						{discountHandler(discountValue)}
+					</View>
+				</View>
+			</View>
+			<View style={circle}>
+				<Icon light name='arrow-right' size={12} color='white' />
+			</View>
 		</View>
-		<View style={circle}>
-			<Icon light name='arrow-right' size={12} color='white' />
-		</View>
-	</View>
-);
-
+	);
+};
 export default HorizontalDishes;
